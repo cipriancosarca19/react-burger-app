@@ -111,7 +111,7 @@ export class BurgerBuilder extends Component {
     }
     let orderSummary = null;
     let burger = this.props.error ? (
-      <p>Ingredients couldn't be loaded</p>
+      <p>Ingredientele nu s-au incarcat</p>
     ) : (
       <Spinner />
     );
