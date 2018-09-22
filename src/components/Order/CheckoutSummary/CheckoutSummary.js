@@ -6,14 +6,14 @@ import classes from './CheckoutSummary.css';
 const checkoutSummary = props => {
   return (
     <div className={classes.CheckoutSummary}>
-      <h1>We hope it tastes well!!!</h1>
+      <h1>Sper ca a fost delicios!!!</h1>
       <div>
         <Burger ingredients={props.ingredients} />
         <Button btnType="Danger" clicked={props.checkoutCancelled}>
-          CANCEL
+          REVOCA
         </Button>
         <Button btnType="Success" clicked={props.checkoutContinued}>
-          CONTINUE
+          CONTINUA
         </Button>
       </div>
     </div>
