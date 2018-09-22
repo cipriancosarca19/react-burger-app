@@ -16,7 +16,7 @@ class Auth extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'email',
-          placeholder: 'Mail address'
+          placeholder: 'Adresa de email'
         },
         value: '',
         validation: {
@@ -30,7 +30,7 @@ class Auth extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'password',
-          placeholder: 'Password'
+          placeholder: 'Parola'
         },
         value: '',
         validation: {
