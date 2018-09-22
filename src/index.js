@@ -27,10 +27,11 @@ const rootReducer = combineReducers({
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(reduxThunk, sagaMiddleware))
-);
+const Store = createStore(
+    combineReducers({router: reducer, appReducer: AppStateReducer}),
+    InitialState(),
+    compose(enhancer, applyMiddleware(middleware))
+    );
 
 // then run the saga
 sagaMiddleware.run(watchAuth);
