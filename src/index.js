@@ -15,7 +15,7 @@ import { watchAuth, watchBurgerBuilder, watchOrder } from './store/sagas';
 
 const composeEnhancers =
   process.env.NODE_ENV === 'development'
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     : null || compose;
 
 const rootReducer = combineReducers({
@@ -27,11 +27,10 @@ const rootReducer = combineReducers({
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-const Store = createStore(
-    combineReducers({router: reducer, appReducer: AppStateReducer}),
-    InitialState(),
-    compose(enhancer, applyMiddleware(middleware))
-    );
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(reduxThunk, sagaMiddleware))
+);
 
 // then run the saga
 sagaMiddleware.run(watchAuth);
